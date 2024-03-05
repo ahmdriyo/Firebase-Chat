@@ -8,5 +8,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-  ]
+, "app/_layout.jsx", "context/authContext.jsx", "app/(app)/_layout.jsx", "firebaseConfig.js", "app/index.jsx", "utils/common.js"  ]
 }
