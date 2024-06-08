@@ -12,18 +12,20 @@ const Home = () => {
   const [users, setUsers] = useState([''])
   useEffect(() => {
     if(user?.uid)
-    getUsers()
+      getUsers()
+    // console.log("User cek",user)
   },[])
 
   const getUsers = async () => {
     const q = query(userRef, where('userId', '!=',user?.uid))
-
     const querySnapshot = await getDocs(q);
     let data = [];
+    // console.log("q",q)
     querySnapshot.forEach(doc => {
       data.push({...doc.data()})
     });
     setUsers(data)
+    // console.log("user data",data)
   }
   // const nama = user.username;
   return (
@@ -34,7 +36,7 @@ const Home = () => {
           <ChatList currentUser={user} users={users}/>
         ) : (
           <View style={{marginTop:90,alignItems:'center'}}>
-            <ActivityIndicator size="large"/>
+            <ActivityIndicator size="large"  color="#fff200"/>
           </View>
         )
       }

@@ -1,11 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 import { getReactNativePersistence,initializeAuth} from "firebase/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import {getFirestore, collection} from 'firebase/firestore'
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBpuUMZGbKT6SKui_v3RZX00If0vusEC50",
   authDomain: "fir-chat-a4faa.firebaseapp.com",

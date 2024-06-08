@@ -22,8 +22,9 @@ import {getRoomId} from "../../utils/common"
 import { Timestamp, addDoc, collection, doc, onSnapshot, orderBy, query, setDoc } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
 const chatRoom = () => {
+  
   const item = useLocalSearchParams();
-  const {user } = useAuth()
+  const { user } = useAuth()
   const router = useRouter();
   const [messages, setMessages] = useState([]);
   const textRef = useRef('');
@@ -35,11 +36,14 @@ const chatRoom = () => {
 
   useEffect(() => {
     createRoomIfNoExists();
-    let roomId = getRoomId(user?.userId, item?.userId);
+    let roomId = getRoomId(user?.userId, item?.userId);  
+    console.log("UserId :",user?.userId)
+    console.log("ItemId :",item?.userId)
     const docRef = doc(db, "rooms", roomId);
     const messagesRef = collection(docRef, "messages");
     const q = query(messagesRef, orderBy('createdAt' , 'asc'));
-
+    
+    // console.log("roomId",roomId); 
     let unsub = onSnapshot (q, (snapshot) => {
       let allMessages = snapshot.docs.map(doc => {
         return doc.data ();

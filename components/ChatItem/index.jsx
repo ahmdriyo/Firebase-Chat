@@ -59,6 +59,7 @@ const ChatItem = ({ item, router, currentUser }) => {
         messageText = messageText.slice(0, maxLength) + "...";
       }
       if (currentUser?.userId == lastMessage?.userId)
+        
         return "Anda: " + messageText;
       return messageText;
     } else {
@@ -69,7 +70,7 @@ const ChatItem = ({ item, router, currentUser }) => {
   // console.log("renderLastMessage : ", renderLastMessage());
   // console.log("lastMessage : ", lastMessage);
   // console.log("currentUser : ", currentUser);
-
+  // console.log(item)
   return (
     <TouchableOpacity
       onPress={openChatRoom}

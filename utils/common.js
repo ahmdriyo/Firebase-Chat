@@ -1,9 +1,11 @@
 const blurhash =
-  '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
-
-
+  '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRyfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
+  
   export const getRoomId = ( userId1, userId2 ) => {
+    // console.log("userId2",userId2)
+    // console.log("userId1",userId1)
     const sortedIds = [userId1, userId2].sort();
+    console.log('sortedIds',sortedIds)
     const roomId = sortedIds.join('-');
     return roomId;
   }

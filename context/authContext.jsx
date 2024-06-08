@@ -10,7 +10,7 @@ export const AuthContextProvider = ({children}) => {
 
   useEffect(() => {
       const unsub = onAuthStateChanged(auth, (user) => {
-        // console.log('got user :' ,user)
+        console.log('got user :' ,user)
         if(user) {
           setIsAuthenticated(true);
           setUser(user)
@@ -21,6 +21,7 @@ export const AuthContextProvider = ({children}) => {
         }
       })
       return unsub;
+      
     // setTimeout(() => {
     //   setIsAuthenticated(false)
     // },600)
@@ -34,6 +35,7 @@ export const AuthContextProvider = ({children}) => {
       let data = docSnap.data();
       setUser({...user, username: data.username, profileUrl: data.profileUrl,userId: data.userId})
     }
+    console.log("update",user)
   }
   const login = async (email,password) => {
     try {
@@ -59,10 +61,6 @@ export const AuthContextProvider = ({children}) => {
   const register = async (email,password,username,profileUrl) => {
     try {
       const response = await createUserWithEmailAndPassword(auth, email,password);
-      // console.log('response user', response?.user)
-
-      // setUser(response?.user);
-      // setIsAuthenticated(true);
 
       await setDoc(doc(db, "users", response?.user?.uid),{
         username,

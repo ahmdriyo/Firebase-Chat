@@ -50,7 +50,7 @@ const SignUpUser = ({ navigation }) => {
     let response = await register(emailRef.current, passwordRef.current, usernameRef.current, profileRef.current);
     setLoading(false);
 
-    console.log('get result : ', response);
+    // console.log('get result : ', response);
     if (!response.success) {
       Alert.alert("Sign Up", response.msg)
     }
